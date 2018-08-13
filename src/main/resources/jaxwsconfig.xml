@@ -10,15 +10,23 @@
 		http://jax-ws.dev.java.net/spring/servlet
 		http://jax-ws.java.net/spring/servlet.xsd">
 
-<wss:binding url="/services/CustomerWebService">
-    <wss:service>
-        <ws:service bean="#customerService">
-        </ws:service>
-    </wss:service>
-</wss:binding>
+    <wss:binding url="/services/CustomerWebService">
+        <wss:service>
+            <ws:service bean="#customerService">
+            </ws:service>
+        </wss:service>
+    </wss:binding>
 
-<!-- Web service bean -->
-<bean id="customerService" class="com.mahmutbas.soap.bootablesoap.ws.customer.impl.CustomerWebServiceImpl"/>
+    <wss:binding url="/services/OrderWebService">
+        <wss:service>
+            <ws:service bean="#orderService">
+            </ws:service>
+        </wss:service>
+    </wss:binding>
+
+    <!-- Web service bean -->
+    <bean id="customerService" class="com.mahmutbas.soap.bootablesoap.ws.customer.impl.CustomerWebServiceImpl"/>
+    <bean id="orderService" class="com.mahmutbas.soap.bootablesoap.ws.order.impl.OrderWebServiceImpl"/>
 
 
 </beans>
